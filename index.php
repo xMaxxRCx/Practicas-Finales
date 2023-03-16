@@ -1,3 +1,15 @@
+<?php
+error_reporting (0);
+if(isset($_POST['btn'])){
+    $numero1 = $_POST['Caja1'];
+    $numero2 = $_POST['Caja2'];
+    $numero1 = (int)$numero1;
+    $numero2 = (int)$numero2;
+    $resultado = $numero1 + $numero2;
+    $valor = $resultado;
+    echo $valor;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +26,7 @@
     <!-- navbar -->
     <?php include "include/navbar.php" ?>
     <?php  include "include/menu.php"?>
+    <?php include "include/menusu.php" ?>
     
 </body>
 </html>
