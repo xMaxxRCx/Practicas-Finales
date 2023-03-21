@@ -1,5 +1,6 @@
 <?php
-include "include/conexion.php"
+include "include/conexion.php";
+include "include/accion1.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +40,13 @@ include "include/conexion.php"
         </div>
         <div class="row text-center">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <input type="text" name="apellido" class="form-control" placeholder="Apellidos" required>
+            <input type="Email" name="correo" class="form-control" placeholder="Email" required>
         </div>
+        <div class="row text-center">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <input type="submit"  value="registrar" name="btn" class="btn btn-success">
+        </div>
+
 
     </form>
     </div>
