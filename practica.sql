@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-03-2023 a las 20:45:24
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.1
+-- Tiempo de generación: 23-03-2023 a las 04:45:42
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,8 +34,15 @@ CREATE TABLE `lugar` (
   `Telefono` varchar(55) NOT NULL,
   `Email` varchar(55) NOT NULL,
   `Facebook` varchar(55) NOT NULL,
-  `Horario` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Horario` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `lugar`
+--
+
+INSERT INTO `lugar` (`Id_L`, `NombreL`, `Descripcion`, `Telefono`, `Email`, `Facebook`, `Horario`) VALUES
+(1, 'Museo Templo Mayor', 'Seminario 8, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06060 Ciudad de México, CDMX', '5540405600', 'templomayor@gob.mx', 'templomayor', 'jueves, 9:00–17:00');
 
 -- --------------------------------------------------------
 
@@ -51,7 +57,14 @@ CREATE TABLE `plantel` (
   `Direccion` text NOT NULL,
   `Telefono` varchar(15) NOT NULL,
   `Responsable` varchar(55) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `plantel`
+--
+
+INSERT INTO `plantel` (`Id_Plantel`, `NombrePlantel`, `ClaveP`, `Direccion`, `Telefono`, `Responsable`) VALUES
+(1, 'Naucalpan1', '12371239dmad', 'Calle Miguel Negrete S/N, San Rafael Chamapa,Naucalpan de Juárez, Méx.', '5553122277', 'Director');
 
 -- --------------------------------------------------------
 
@@ -67,7 +80,7 @@ CREATE TABLE `usuarios` (
   `Telefono` varchar(55) NOT NULL,
   `FechaN` date NOT NULL,
   `Email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -107,13 +120,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `lugar`
 --
 ALTER TABLE `lugar`
-  MODIFY `Id_L` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_L` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `plantel`
 --
 ALTER TABLE `plantel`
-  MODIFY `Id_Plantel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Plantel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
