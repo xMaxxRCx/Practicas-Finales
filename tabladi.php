@@ -1,14 +1,20 @@
 <?php 
 include "include/conexion.php";
 
-$consulta="SELECT * FROM usuarios ";
+$consulta="SELECT * FROM usuarios ORDER BY Nombre ASC";
 $execute=$conex->query($consulta);
+
+$consulta = "SELECT * FROM usuarios ORDER BY Nombre ASC";
+$execute=$conex->query($consulta);
+if ($conex->error): {
+  die("Error en la consulta: " .$conex->error); 
+ } endif;
 
 /*  INNER JOIN  */
 
-$innercia = "SELECT u.id_Usuario, u.Nombre, u.Apellidop, u.ApellidoM, u.Email,u.FechaN, u.Id_Tuser, t.Id_Tuser, t.NombreT, Descripcion 
-        FROM usuarios u
-        INNER JOIN tusuario t ON u.Id_Tuser = t.Id_Tuser";
+$innercia = "SELECT u.id_Usuario, u.Nombre, u.Apellidop, u.ApellidoM, u.Email,u.FechaN, u.Id_Tuser, t.Id_Tuser, t.NombreT, t.Descripcion 
+        FROM usuarios as u 
+        INNER JOIN tusuario as t ON u.Id_Tuser = t.Id_Tuser";
 
 $ejex = $conex->query($innercia);
 ?>
@@ -40,7 +46,7 @@ $ejex = $conex->query($innercia);
     
           </thead>  
           <tbody>
-          <?php while($row=$execute->fetch_array()){?>
+          <?php while($row=$ejex->fetch_array()){?>
             <tr>
               <td><?php  echo $row ['Nombre']; ?></td>
               <td><?php  echo $row ['Apellidop']; ?></td>
@@ -48,7 +54,7 @@ $ejex = $conex->query($innercia);
               <td><?php  echo $row ['Email']; ?></td>
               <td><?php  echo $row ['FechaN']; ?></td>
               <td><?php  echo $row ['Id_Tuser']; ?></td>     
-    
+              <td><a href="">-Editar</a> <a href="#">-Borrar</a></td>
             </tr>
     
             <?php }?>
